@@ -2,11 +2,11 @@ def countdown ():
     print(5)
 
 
-def printreturn:
+def printreturn():
 
 
-def firstpluslength:
+def firstpluslength():
 
-def valuesgreater:
+def valuesgreater():
 
-def thislengththatlength:
+def thislengththatlength():
