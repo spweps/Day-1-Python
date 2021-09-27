@@ -30,7 +30,7 @@ class BankAccount:
         self.balance += (self.balance*self.int_rate)
         return self
     
-    def prnt_all(BankAccount, ):
+    #def prnt_all(BankAccount, ):
     
 scott = BankAccount(.0025, 0)
 jessica = BankAccount(.0025, 0)
