@@ -24,8 +24,14 @@ if likes_bbq and weight > 150:
     weight += 10
     age = int(age) + 5
     print(name + " weighs " + str(weight) + " lbs " + age + " years old ")
+    print(f"{name} weighs {weight} lbs and is {age} years old") #f strings!!!
+    print("{} weighs {} lbs and is {} years old".format(name, weight, age)) #formatting--order matters
 elif likes_fruit or iq > 140:
     weight -=20
     print(weight)
 else :
     print(weight)
+
+#Dice rolling
+from random import randint
+print("You rolled a", randint(1,6))
