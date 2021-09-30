@@ -17,7 +17,8 @@ class Store:
     def set_clearance(self, category, percent_discount):
         self.category = category
         for i in self.product_list:
-            i.price = (i.price*percent_discount) + i.price
+            i.price -= (i.price*percent_discount)
+        return self
 
 
 class Product:
