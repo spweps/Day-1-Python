@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+h1 {
+    text-align:center;
+}
+
+#checkerboard{
+    display:flex;
+    justify-content:center;
+}
+
+.dark{
+    background-color:black;
+    height: 80px; width: 80px;
+}
+
+.light{
+    background-color:white;
+    height: 80px; width: 80px;
+}
+
+.row1{
+    justify-content:center;
+}
+
+.row2{
+    justify-content:center;
+}
+

@@ -7,6 +7,11 @@ app = Flask(__name__)
 def welcome():
     return render_template("index.html") #from template folder--index is referenced as a route
 
+@app.route("/monsters/<monster>")
+def monster_page(monster):
+    if monster.lower() == "dracula" or monster.lower() == "mummy" or monster.lower() == "frankenstein":
+        return render_template("monster.html", monster_name = monster.capitalize(), facts = eval(f"facts.{monster.lower()}_facts"))
+
 @app.route("/monsters/<monster>")  #<monster> is indicated in the URL where you choose the monster--bootstrapping
 def monster_page(monster):
     if monster = "dracula":
