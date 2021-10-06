@@ -19,6 +19,8 @@
             <td>
                 <h3>{{m.name}}</h3>
                 <img src = "{{m.meme_url]}}" width = "400">
+                <a href="/edit/{{m.id}}">Edit</a>
+                <a href="/delete/{{m.id}}">Delete</a>
             </td>
         </tr>
         {% endfor %}
