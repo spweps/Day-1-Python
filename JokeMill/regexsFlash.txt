@@ -25,3 +25,5 @@ Flash messages in one or more place on a page
 Assign the flash messages to that block of jinja like this:
 
 flash("Password is required","register")
+
+365a91C9
