@@ -5,7 +5,7 @@ from flask import flash
 
 
 class User:
-    db = "login_reg"
+    db ="belt_exam_schema"   #relates to schema file
     def __init__(self,data):
         self.id = data['id']
         self.first_name = data['first_name']
@@ -43,4 +43,18 @@ class User:
     @classmethod
     def save(cls,data):
         query = "INSERT INTO users (first_name,last_name,email,password) VALUES(%(first_name)s,%(last_name)s,%(email)s,%(password)s)"
-        return connectToMySQL(cls.db_name).query_db(query,data)
+        return connectToMySQL("belt_exam_schema").query_db(query,data)
+    
+    @classmethod
+    def get_by_id(cls,data):
+        query = "SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(cls.db).query_db(query,data)
+        return cls(results[0])
+    
+    @classmethod
+    def get_by_email(cls,data):
+        query = "SELECT * FROM users WHERE email = %(email)s;"
+        results = connectToMySQL(cls.db).query_db(query,data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])

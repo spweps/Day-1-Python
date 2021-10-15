@@ -9,6 +9,7 @@
 <body>
     <h1>Welcome {{session["first_name"]}}</h1>
     <a href="/add/painting">Add Painting</a> | 
+    <a href="/edit/painting">Edit Painting</a> |
     <a href="/logout">Logout</a>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
