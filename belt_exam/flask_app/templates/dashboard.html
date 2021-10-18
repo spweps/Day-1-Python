@@ -8,8 +8,7 @@
 </head>
 <body>
     <h1>Welcome {{session["first_name"]}}</h1>
-    <a href="/add/painting">Add Painting</a> | 
-    <a href="/edit/painting">Edit Painting</a> |
+    <a href="/add/painting">Add Painting</a> |  |
     <a href="/logout">Logout</a>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -24,16 +23,19 @@
             <th>Artist</th>
             <th>Painting</th>
             <th>Price</th>
+            <th>Selection</th>
         </tr>
-        {% for uj in users_paintings %}
+        {% for painting in paintings %}
         <tr>
-            <td>{{uj.painting.artist}}</td>
-            <td><a href="{{uj.painting.painting}}"></a><br>
-                {% if uj.id == session["user_id"] %}
-                    <a href="/delete/{{uj.painting.id}}">Delete</a>
-                    <a href="/edit/{{uj.painting.id}}">Edit</a>
+            <td>{{painting.artist}}</td>
+            <td><a href= "/painting/show/{{painting.id}}">{{painting.title}}</a></td>
+            <td>{{painting.price}}</td>
+            <td><a href="{{painting.title}}"></a><br>
+                {% if user.id == session["user_id"] %}
+                    <a href="/delete/{{painting.id}}">Delete</a>
+                    <a href="/edit/painting/{{painting.id}}">Edit</a>
                 {% endif %}
-            </td>
+            </td> 
         </tr>
         {% endfor %}
     </table>
