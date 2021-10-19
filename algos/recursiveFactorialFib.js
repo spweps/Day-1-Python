@@ -52,3 +52,31 @@ function fibonacci(n) {
 }
 console.log(fibonacci(4));
 console.log(fibonacci(9));
+
+
+function factorial(num) {
+    if (num < 1){
+        return "Number entered as an argument must be a positive number."
+    }
+    if(num == 1){
+        return 1;
+    }
+    return num * factorial(num-1);
+}
+
+console.log(factorial(5));
+
+function fibonacci(position) {
+    if(position < 0) {
+        return "Number entered as an argument must be greater than or equal to 0.";
+    }
+    if(position == 0) {
+        return 0;
+    }
+    if(position == 1) {
+        return 1;
+    }
+    return fibonacci(position-1) + fibonacci(position-2);
+}
+
+console.log(fibonacci(9));

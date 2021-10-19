@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Car</title>
+</head>
+<body>
+    <h1>Edit {{car.model}}</h1>
+    <a href="/dashboard">Dashboard</a> |<a href="/add/car">Add Car</a> | <a href="/logout">Logout</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br>
+    <form action="/edit/car/{{car.id}}" method="POST">
+        Make<br>
+        <input type="text" name="make" value="{{car.make}}"><br><br>
+        Model<br>
+        <input type="text" name="model" value="{{car.model}}"><br><br>
+        Year<br>
+        <input type="text" name="year" value="{{car.year}}"><br><br>
+        Description<br>
+        <input type="text" name="description" value="{{car.description}}"><br><br>
+        Price<br>        
+        <input type="text" name="price" value="{{car.price}}"><br><br>
+        <!--<textarea>jinga here</textarea> pre-populate textarea-->
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
