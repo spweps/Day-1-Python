@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+</head>
+<body>
+    <h1>Edit {{show.title}}</h1>
+    <a href="/dashboard">Dashboard</a> |<a href="/add/show">Add Show</a> | <a href="/logout">Logout</a>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p style="color:red">{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <br>
+    <form action="/edit/show/{{show.id}}" method="POST">
+        Title<br>
+        <input type="text" name="title" value="{{show.title}}"><br><br>
+        Network<br>
+        <input type="text" name="network" value="{{show.network}}"><br><br>
+        Release Date<br>
+        <input type="text" name="release_date" value="{{show.release_date}}"><br><br>
+        Description<br>
+        <input type="text" name="description" value="{{show.description}}"><br><br>
+        <!--<textarea>jinga here</textarea> pre-populate textarea-->
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
