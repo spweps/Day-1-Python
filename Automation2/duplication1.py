@@ -2,9 +2,9 @@ import requests
 from bs4 import BeautifulSoup
 
 # Base URL of your website
-base_url = "https://example.com"
+base_url = "https://dalessuperstore.com/"
 # Initial URL of the most general category page
-start_category_url = base_url + "/categories"
+start_category_url = base_url + "/c-962415-shop-by-part-category.html"
 
 def get_listings_data(url):
     response = requests.get(url)
