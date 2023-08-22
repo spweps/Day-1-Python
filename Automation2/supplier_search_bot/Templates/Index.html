@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supplier Search Bot</title>
+</head>
+<body>
+    <h2>Enter SKU:</h2>
+    <input type="text" id="sku">
+    <button onclick="search()">Search</button>
+
+    <h3>Results:</h3>
+    <pre id="results"></pre>
+
+    <script>
+        function search() {
+            let sku = document.getElementById('sku').value;
+            fetch('/search?sku=' + sku)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+                });
+        }
+    </script>
+</body>
+</html>
