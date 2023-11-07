@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <body>
+        <h1>Welcome {{user["first_name"]}}</h1>
+        <a href="/add/car">Add Car</a> |  |
+        <a href="/logout">Logout</a>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color:red">{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h2>Cars</h2>
+        <table width="800" border="1">
+            <tr>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Seller</th>
+                <th>Actions</th>
+            </tr>
+            {% for u in users %}
+            <tr>
+                <td>{{u.car.make}}</td>
+                <td><a href="/show/{{u.car.id}}">{{u.car.model}}</a></td>
+                <td>{{u.car.year}}</td>
+                <td>{{u.first_name}} {{u.last_name}}</td>
+                <td><a href="{{u.car.model}}"></a><br>
+                    {% if u.id == session["user_id"] %}
+                        <a href="/delete/{{u.car.id}}">Delete</a>
+                        <a href="/edit/car/{{u.car.id}}">Edit</a>
+                    {% endif %}
+                </td> 
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</body>
+</html>
